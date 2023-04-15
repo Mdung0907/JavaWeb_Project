@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib version="2.0" xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd">
+	<tlib-version>1.0</tlib-version>
+	<short-name>abc</short-name>
+	<uri>/WEB-INF/laydulieu</uri>
+	<!-- Account -->
+	<function>
+		<name>getAllaccount</name>
+		<function-class>com.fpltn.dao.AccountDao</function-class>
+		<function-signature>java.util.List getAccount()</function-signature>
+	</function>
+	<function>
+		<name>findAccountbyId</name>
+		<function-class>com.fpltn.dao.AccountDao</function-class>
+		<function-signature>com.fpltn.entities.Account findById(int)</function-signature>
+	</function>
+	<!-- Product -->
+	<function>
+		<name>getAllproduct</name>
+		<function-class>com.fpltn.dao.ProductDao</function-class>
+		<function-signature>java.util.List getProduct()</function-signature>
+	</function>
+	<function>
+		<name>getAllproductbyAccount</name>
+		<function-class>com.fpltn.dao.ProductDao</function-class>
+		<function-signature>java.util.List getProductbyAccount(int)</function-signature>
+	</function>
+	<function>
+		<name>findProductbyId</name>
+		<function-class>com.fpltn.dao.ProductDao</function-class>
+		<function-signature>com.fpltn.entities.ProductDao findById(int)</function-signature>
+	</function>
+	<!-- Danhmuc -->
+	<function>
+		<name>getAlldanhmuc</name>
+		<function-class>com.fpltn.dao.DanhmucDao</function-class>
+		<function-signature>java.util.List getDanhmuc()</function-signature>
+	</function>
+	<function>
+		<name>findDanhmucbyId</name>
+		<function-class>com.fpltn.dao.DanhmucDao</function-class>
+		<function-signature>com.fpltn.entities.DanhmucDao findById(int)</function-signature>
+	</function>
+</taglib>

@@ -1,0 +1,180 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+*{
+	
+}
+
+
+:root {
+	--main-color: #ffc240;
+	--main-color-hover: #fead34;
+	--main-color-rgba: rgba(255, 194, 64, 0.3);
+	--dark-gray: #323332;
+	--medium-gray: #ababaa;
+	--light-gray: #f1f1f1;
+	--white: #fff;
+}
+
+.mx-auto {
+	margin: auto;
+}
+
+.mr-auto {
+	margin-right: auto;
+}
+
+.ml-auto {
+	margin-left: auto;
+}
+
+.w-100 {
+	width: 100%;
+}
+
+.h-100 {
+	height: 100%;
+}
+
+.container-full {
+	max-width: 1200px;
+}
+
+
+
+.row {
+	flex-direction: row;
+}
+
+.column {
+	flex-direction: column;
+}
+
+.align-items-center {
+	align-items: center;
+}
+
+.justify-content-center {
+	justify-content: center;
+}
+
+.justify-content-between {
+	justify-content: space-between;
+}
+
+.justify-content-around {
+	justify-content: space-around;
+}
+
+.justify-content-evenly {
+	justify-content: space-evenly;
+}
+
+.border-white {
+	border: 2px solid var(--white);
+}
+
+.border-light {
+	border: 1px solid var(--light-gray);
+}
+
+.border-bottom-light {
+	border-bottom: 1px solid var(--light-gray);
+}
+
+.border-top-light {
+	border-top: 1px solid var(--light-gray);
+}
+
+.border-right-light {
+	border-right: 1px solid var(--light-gray);
+}
+
+.border-left-light {
+	border-left: 1px solid var(--light-gray);
+}
+
+.border-medium {
+	border: 2px solid var(--medium-gray);
+}
+
+.border-dark {
+	border: 2px solid var(--dark-gray);
+}
+
+.rounded-circle {
+	border-radius: 50%;
+}
+
+.rounded-pill {
+	border-radius: 3rem;
+}
+
+/* PRODUCT SHOWCASE: PRODUCT SELECTION */
+
+
+
+
+
+.product-description {
+	max-width: 360px;
+	margin-right: 20px;
+}
+
+.product-type {
+	margin-bottom: 40px;
+}
+
+.product-text-description,
+.product-text-description a {
+	color: var(--medium-gray);
+}
+
+.product-text-description a:hover {
+	text-decoration: underline;
+}
+
+.product-options {
+	margin: 2.5rem 0 4rem;
+}
+
+.option-btn {
+	height: 42px;
+	font-size: 0.85rem;
+	font-weight: 500;
+	color: var(--dark-gray);
+	padding: 0.5rem;
+	margin-right: 0.5rem;
+}
+
+.option-btn svg {
+	margin-right: 0.5rem;
+}
+
+.option-btn:hover {
+	border: 1px solid var(--main-color);
+}
+
+.price {
+	box-shadow: inset 0 -1rem 0 var(--main-color-rgba);
+	margin-right: auto;
+}
+
+.add-cart-btn {
+	background: var(--main-color);
+	width: 150px;
+	height: 42px;
+	font-weight: 700;
+	text-transform: uppercase;
+	padding: 5px 5px 5px 20px;
+}
+
+.add-cart-btn:hover {
+	background: var(--main-color-hover);
+}
+
+.add-cart-btn span:hover {
+	opacity: 1;
+}
+
+
+
+
