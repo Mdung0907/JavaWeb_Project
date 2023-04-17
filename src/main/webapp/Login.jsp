@@ -10,6 +10,8 @@
 		var password = document.frmRegister.password.value;
 		var confilm = document.frmRegister.confilm.value;
 		var email = document.frmRegister.email.value;
+		const thongbaospan = document.getElementById("testthongbao");
+		var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 		if (name == "") {
 			alert('Họ và tên trống')
 			return false;
@@ -32,10 +34,10 @@
 		} else if (email == '') {
 			alert('Email trống')
 			return false;
-		} else {
+		}
+		 else {
 			alert('Đăng kí thành công')
 			return true;
-
 		}
 	}
 	function Validatelogin() {
@@ -50,6 +52,22 @@
 		} else {
 			return true;
 		}
+	}
+	function ValidateEmail(inputText)
+	{
+	var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+	if(inputText.value.match(mailformat))
+	{
+	alert("Valid email address!");
+	
+	return true;
+	}
+	else
+	{
+	alert("You have entered an invalid email address!");
+	
+	return false;
+	}
 	}
 </script>
 </head>
@@ -75,6 +93,10 @@
 						<input id="check" type="checkbox" class="check" checked> <label
 							for="check"><span class="icon"></span> Lưu mật khẩu</label>
 					</div>
+					<div class="group">
+					<span style="color: red">${param.message }</span>
+					</div>
+					
 					<div class="group">
 						<input type="submit" class="button" value="Đăng nhập">
 					</div>
@@ -106,8 +128,12 @@
 					<div class="group">
 						<label for="pass" class="label">Email</label> <input id="email"
 							type="text" class="input" name="email">
+
 					</div>
-<!-- 					<div class="group">
+					<div class="group">
+						<span id="testthongbao">${thongbao }</span>
+					</div>
+					<!-- 					<div class="group">
 						<label for="pass" class="label">Giới tính</label> <input
 							type="checkbox" id="vehicle2" name="gioitinhnam"> <label
 							for="vehicle2">Nam</label><br> <input type="checkbox"
@@ -118,8 +144,8 @@
 						<button type="submit" class="button">Đăng kí</button>
 					</div>
 					<div class="foot-lnk">
-					<a href="Login.jsp">Bạn đã có tài khoản</a>
-						
+						<a href="Login.jsp">Bạn đã có tài khoản</a>
+
 					</div>
 				</form>
 			</div>

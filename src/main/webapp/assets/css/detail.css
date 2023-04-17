@@ -1,8 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
-*{
+@import
+	url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap")
+	;
+
+* {
 	
 }
-
 
 :root {
 	--main-color: #ffc240;
@@ -37,8 +39,6 @@
 .container-full {
 	max-width: 1200px;
 }
-
-
 
 .row {
 	flex-direction: row;
@@ -109,11 +109,6 @@
 }
 
 /* PRODUCT SHOWCASE: PRODUCT SELECTION */
-
-
-
-
-
 .product-description {
 	max-width: 360px;
 	margin-right: 20px;
@@ -123,8 +118,7 @@
 	margin-bottom: 40px;
 }
 
-.product-text-description,
-.product-text-description a {
+.product-text-description, .product-text-description a {
 	color: var(--medium-gray);
 }
 
@@ -174,7 +168,3 @@
 .add-cart-btn span:hover {
 	opacity: 1;
 }
-
-
-
-

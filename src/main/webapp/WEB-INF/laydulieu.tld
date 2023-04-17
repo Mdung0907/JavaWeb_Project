@@ -27,10 +27,40 @@
 		<function-class>com.fpltn.dao.ProductDao</function-class>
 		<function-signature>java.util.List getProductbyAccount(int)</function-signature>
 	</function>
+		<function>
+		<name>getAllproductbyDanhmuc</name>
+		<function-class>com.fpltn.dao.ProductDao</function-class>
+		<function-signature>java.util.List getProductbyDanhmuc(int,int,int)</function-signature>
+	</function>
 	<function>
 		<name>findProductbyId</name>
 		<function-class>com.fpltn.dao.ProductDao</function-class>
-		<function-signature>com.fpltn.entities.ProductDao findById(int)</function-signature>
+		<function-signature>com.fpltn.entities.Product findById(int)</function-signature>
+	</function>
+	<function>
+		<name>getAllProductPhanTrang</name>
+		<function-class>com.fpltn.dao.ProductDao</function-class>
+		<function-signature>java.util.List getProduct(int, int)</function-signature>
+	</function>
+	<function>
+		<name>getProductbyname</name>
+		<function-class>com.fpltn.dao.ProductDao</function-class>
+		<function-signature>java.util.List getProductbyName(java.lang.String)</function-signature>
+	</function>
+	<function>
+		<name>getProductbynguoitao</name>
+		<function-class>com.fpltn.dao.ProductDao</function-class>
+		<function-signature>java.util.List getProductbyNguoitao(int)</function-signature>
+	</function>
+	<function>
+		<name>demProduct</name>
+		<function-class>com.fpltn.dao.ProductDao</function-class>
+		<function-signature>Long DemSoLuongProduct()</function-signature>
+	</function>
+	<function>
+		<name>demProductsearch</name>
+		<function-class>com.fpltn.dao.ProductDao</function-class>
+		<function-signature>Long DemSoLuongProduct(java.lang.String)</function-signature>
 	</function>
 	<!-- Danhmuc -->
 	<function>

@@ -10,19 +10,21 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
 	crossorigin="anonymous"></script>
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-	aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade xyz" id="exampleModal" tabindex="-1"
+	role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
 				<h5 class="modal-title" id="exampleModalLabel">Tạo sản phẩm mới</h5>
-				<button type="button" class="close" data-dismiss="modal"
+				<button type="button" class="close" data-bs-dismiss="modal"
 					aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
 			<div class="modal-body">
 				<form action="SVAddproduct" method="post">
+					<input type="hidden" name="jspPath"
+						value="${pageContext.request.requestURI}" />
 					<div class="form-group">
 						<label for="exampleInputEmail1">Tên sản phẩm</label> <input
 							type="text" class="form-control" id="exampleInputEmail1"
@@ -51,6 +53,7 @@
 							type="file" class="form-control" id="inputImage"
 							aria-describedby="emailHelp" name="role"> <input
 							type="hidden" id="srcImg" name="hinhanh"></input>
+							<img style="width:150px" src="" id="imgload">
 
 					</div>
 					<div class="modal-footer">
@@ -67,13 +70,13 @@
 </div>
 <script>
 	document.querySelector("#inputImage").addEventListener("change", readFile);
-	
+
 	function readFile() {
 		const FR = new FileReader();
 		FR.addEventListener("load", function(evt) {
-
+			document.querySelector("#imgload").src = evt.target.result;
 			document.querySelector("#srcImg").value = evt.target.result;
-			alert(document.querySelector("#srcImg").value);
+			/* alert(document.querySelector("#srcImg").value); */
 		});
 		FR.readAsDataURL(this.files[0]);
 	}

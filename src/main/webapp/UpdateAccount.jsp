@@ -14,7 +14,7 @@
 			<div class="modal-header">
 				<h5 class="modal-title" id="exampleModalLabel">Cập nhật thông
 					tin</h5>
-				<button type="button" class="close" data-dismiss="modal"
+				<button type="button" class="close" data-bs-dismiss="modal"
 					aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
@@ -31,8 +31,8 @@
 
 						</div>
 						<div class="form-group">
-							<label for="exampleInputEmail1">Tên đăng nhập</label> <input type="email"
-								class="form-control" id="exampleInputEmail1"
+							<label for="exampleInputEmail1">Tên đăng nhập</label> <input
+								type="email" class="form-control" id="exampleInputEmail1"
 								aria-describedby="emailHelp" name="username" placeholder="Email"
 								value="${item.getUsername() }" readonly="true">
 
@@ -56,8 +56,8 @@
 								value="${item.getEmail() }">
 						</div>
 						<div class="form-group">
-							<label for="exampleInputEmail1">Loại tài khoản</label> <input type="email"
-								class="form-control" id="exampleInputEmail1"
+							<label for="exampleInputEmail1">Loại tài khoản</label> <input
+								type="email" class="form-control" id="exampleInputEmail1"
 								aria-describedby="emailHelp" name="role" placeholder="Email"
 								value="${item.getRole() }" readonly="true">
 

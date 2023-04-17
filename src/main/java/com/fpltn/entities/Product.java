@@ -1,14 +1,14 @@
 package com.fpltn.entities;
 // Generated Apr 10, 2023, 10:48:36 AM by Hibernate Tools 4.3.6.Final
 
+import static javax.persistence.GenerationType.IDENTITY;
+
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
-import static javax.persistence.GenerationType.IDENTITY;
-
-
-import java.util.Date;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -43,7 +43,18 @@ public class Product implements java.io.Serializable {
 		this.tinhtrang = tinhtrang;
 		this.mota = mota;
 	}
-	
+	public Product(Integer id, String name,Danhmuc danhmuc, String gia, Account nguoitao,Date newdate, String mota,Boolean tinhtrang,String hinhanh) {
+		this.id = id;
+		this.name = name;
+		this.danhmuc = danhmuc;
+		this.gia = gia;
+		this.nguoitao = nguoitao;
+		this.ngaytao=newdate;
+		this.mota = mota;
+		this.tinhtrang = tinhtrang;
+		this.hinhanh=hinhanh;
+	}
+
 	public Product(String name,Danhmuc danhmuc, String gia, Account nguoitao,Date newdate, String mota,Boolean tinhtrang,String hinhanh) {
 		this.name = name;
 		this.danhmuc = danhmuc;
@@ -113,7 +124,7 @@ public class Product implements java.io.Serializable {
 	public void setMota(String mota) {
 		this.mota = mota;
 	}
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "nguoitao")
 	public Account getNguoitao() {
 		return this.nguoitao;
@@ -130,7 +141,7 @@ public class Product implements java.io.Serializable {
 	public void setNgaytao(Date nguoitao) {
 		this.ngaytao = nguoitao;
 	}
-	
+
 	@Column(name = "hinhanh")
 	public String getHinhanh() {
 		return this.hinhanh;

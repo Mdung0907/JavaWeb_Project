@@ -1,19 +1,24 @@
 package com.fpltn.servlet;
 
+import java.io.IOException;
+import java.net.URLEncoder;
+
+import javax.swing.JOptionPane;
+
+import com.fpltn.dao.AccountDao;
+import com.fpltn.entities.Account;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import com.fpltn.dao.AccountDao;
-import com.fpltn.entities.Account;
 
 /**
  * Servlet implementation class SVLogin
  */
 public class SVLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -25,6 +30,7 @@ public class SVLogin extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
@@ -38,13 +44,14 @@ public class SVLogin extends HttpServlet {
 			response.sendRedirect("/MyWeb");
 		}
 		else {
-			return;
+			response.sendRedirect("login?message="+URLEncoder.encode("Sai thông tin", "UTF-8"));
 		}
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);

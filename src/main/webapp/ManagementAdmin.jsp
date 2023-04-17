@@ -5,14 +5,16 @@
 <%@ taglib prefix="f" uri="/WEB-INF/laydulieu"%>
 <%@include file="../include/Header.jsp"%>
 <body>
-
+	<%@include file="CreateProduct.jsp"%>
 	<%@include file="UpdateAccountAdmin.jsp"%>
+<%@include file="UpdateProductAdmin.jsp"%> 
 	<main class="main-banner ">
 		<div class="container" style="margin-top: -7%; color: white;">
+
 			<div>
 
 				<h2>Quản lí tài khoản</h2>
-				<button class="btncreate">Tạo tài khoản mới mới</button>
+
 				<table class="table" style="margin-top: 3%; color: white;">
 					<thead>
 						<tr>
@@ -43,17 +45,17 @@
 								</c:choose>
 								<td><c:choose>
 										<c:when test="${account.getRole() ==false}">
-											<button>
-												<a href="SVDeleteAccountAdmin?id=${account.getId() }"
-													style="color: red"> Xóa</a>
-											</button>
-											<a href="ManagementAccount.jsp?id=${account.getId()}">
+
+											<a href="DeleteAccountAdmin?id=${account.getId() }"
+												style="color: red"> Xóa</a>
+
+											<a href="ManagementAdmin.jsp?account&accid=${account.getId()}">
 												<button type="button">Cập nhật</button>
 											</a>
 
 										</c:when>
 										<c:otherwise>
-											<a href="ManagementAccount.jsp?id=${account.getId()}">
+											<a href="ManagementAdmin.jsp?account&accid=${account.getId()}">
 												<button type="button">Cập nhật</button>
 											</a>
 										</c:otherwise>
@@ -66,7 +68,8 @@
 			</div>
 			<div style="margin-top: 10%">
 				<h2>Quản lí sản phẩm</h2>
-				<button class="btncreate">Tạo sản phẩm mới</button>
+				<button class="btncreate" data-bs-toggle="modal"
+					data-bs-target=".xyz">Tạo sản phẩm mới</button>
 				<table class="table" style="margin-top: 3%; color: white;">
 					<thead>
 						<tr>
@@ -93,40 +96,14 @@
 								<td>${product.getNgaytao()}</td>
 								<td>${product.getMota()}</td>
 								<td>${product.getTinhtrang()}</td>
-								<td>><img src="${product.getHinhanh() }"></td>
-								<td><button>
-										<a href="" style="color: red"> Xóa</a>
-									</button> <a href="">
+								<td><img src="${product.getHinhanh() }"></td>
+								<td><a href="DeleteProductAdmin?id=${product.getId() }"
+									style="color: red"> Xóa</a> <a
+									href="ManagementAdmin.jsp?product=true&id=${product.getId()}">
 										<button type="button">Cập nhật</button>
 								</a></td>
 							</tr>
 						</c:forEach>
-					</tbody>
-				</table>
-			</div>
-			<div style="margin-top: 10%">
-				<h2>Quản lí danh mục</h2>
-				<button class="btncreate">Tạo danh mục mới</button>
-				<table class="table" style="margin-top: 3%; color: white;">
-					<thead>
-						<tr>
-							<th>Mã</th>
-							<th>Tên danh mục</th>
-							<th>Mô tả</th>
-							<th>Chỉnh sửa</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>John</td>
-							<td>Doe</td>
-							<td>Doe</td>
-							<td><button>
-									<a href="" style="color: red"> Xóa</a>
-								</button> <a href="">
-									<button type="button">Cập nhật</button>
-							</a></td>
-						</tr>
 					</tbody>
 				</table>
 			</div>

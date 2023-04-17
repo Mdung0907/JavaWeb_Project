@@ -1,8 +1,9 @@
 @charset "ISO-8859-1";
+
 .btncreate {
-	margin-top:1%;
+	margin-top: 1%;
 	color: black;
-	font-weight:400;
+	font-weight: 400;
 	background-color: none;
 	border: none;
 }

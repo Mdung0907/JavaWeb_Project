@@ -26,24 +26,19 @@
 					</div>
 				</div>
 				<div class="col-lg-12">
-					<form id="search-form" name="gs" method="submit" role="search"
-						action="#">
+					<form id="search-form" name="gs" method="get" role="search"
+						action="index">
 						<div class="row">
 							<div class="col-lg-3 align-self-center">
 								<fieldset>
-									<select name="area" class="form-select" aria-label="Area"
-										id="chooseCategory" onchange="this.form.click()">
-										<option selected>Tất cả khu vực</option>
-										<option value="New Village">Buôn Mê Thuột</option>
-										<option value="Old Town">Eahleo</option>
-										<option value="Modern City">Trung Quốc</option>
-									</select>
+									<input type="text" name="namekeyword" class="searchText"
+										id="test" placeholder="Nhập tên cần tìm" autocomplete="on">
 								</fieldset>
 							</div>
 							<div class="col-lg-3 align-self-center">
 								<fieldset>
-									<input type="address" name="address" class="searchText"
-										placeholder="Nhập địa chỉ" autocomplete="on" required>
+									<input type="text" name="namenguoitao" class="searchText"
+										placeholder="Nhập tên nhà cung cấp" autocomplete="on">
 								</fieldset>
 							</div>
 							<div class="col-lg-3 align-self-center">
@@ -52,16 +47,16 @@
 										aria-label="Default select example" id="chooseCategory"
 										onchange="this.form.click()">
 										<option selected>Mức giá</option>
-										<option value="$100 - $250">$100 - $250</option>
-										<option value="$250 - $500">$250 - $500</option>
-										<option value="$500 - $1000">$500 - $1,000</option>
-										<option value="$1000+">$1,000 or more</option>
+										<option value="$100 - $250">Dưới 100.000vnđ</option>
+										<option value="$250 - $500">100.000-500.000vnđ</option>
+										<option value="$500 - $1000">500.000-2.000.000vnđ</option>
+										<option value="$1000+">Lớn hơn 2.000.000vnđ</option>
 									</select>
 								</fieldset>
 							</div>
 							<div class="col-lg-3">
 								<fieldset>
-									<button class="main-button">
+									<button class="main-button" type="submit">
 										<i class="fa fa-search"></i>Tìm kiếm
 									</button>
 								</fieldset>
@@ -71,18 +66,18 @@
 				</div>
 				<div class="col-lg-10 offset-lg-1">
 					<ul class="categories">
-						<li><a href="category.html"><span class="icon"><img
+						<li><a href="index?danhmuc=2"><span class="icon"><img
 									src="assets/images/search-icon-01.png" alt="Home"></span> Căn hộ</a></li>
-						<li><a href="listing.html"><span class="icon"><img
+						<li><a href="index?danhmuc=3"><span class="icon"><img
 									src="assets/images/search-icon-02.png" alt="Ẩm thực"></span> Ẩm
 								thực &amp; Đời sống</a></li>
-						<li><a href="#"><span class="icon"><img
+						<li><a href="index?danhmuc=4"><span class="icon"><img
 									src="assets/images/search-icon-03.png" alt="Vehicle"></span> Xe
 								cộ</a></li>
-						<li><a href="#"><span class="icon"><img
+						<li><a href="index?danhmuc=5"><span class="icon"><img
 									src="assets/images/search-icon-04.png" alt="Mua sắm"></span> Mua
 								sắm</a></li>
-						<li><a href="#"><span class="icon"><img
+						<li><a href="index?danhmuc=6"><span class="icon"><img
 									src="assets/images/search-icon-05.png" alt="Travel"></span> Du
 								lịch</a></li>
 					</ul>
@@ -90,62 +85,352 @@
 			</div>
 		</div>
 	</div>
+	<c:choose>
+		<c:when test="${param.danhmuc==null }">
+			<c:choose>
+				<c:when test="${param.namekeyword!=null }">
+					<c:set var="soluong" value="3"></c:set>
+					<c:choose>
 
-
-
-
-	<div class="recent-listing" style="margin-top: 0">
-		<div class="container">
-			<div class="row">
-			<c:forEach var="product" items="${f:getAllproduct()}">
-				<div class="col-lg-12">
-					<div class="owl-carousel owl-listing">
-						<div class="item">
+						<c:when test="${param.vitri == null}">
+							<c:set var="vitri" value="0"></c:set>
+						</c:when>
+						<c:otherwise>
+							<c:set var="vitri" value="${(param.vitri - 1)*3}"></c:set>
+						</c:otherwise>
+					</c:choose>
+					<div class="recent-listing" style="margin-top: 0">
+						<div class="container">
 							<div class="row">
-								<div class="col-lg-12">
-									<div class="listing-item">
-										<div class="left-image">
-											<a href="#"><img src="${product.getHinhanh() }"
-												alt=""></a>
-										</div>
-										<div class="right-content align-self-center" style="padding: 0;margin-left: 30px">
-											<a href="#"><h4>${product.getName()}</h4></a>
-											<h6>by: ${product.getNguoitao().getFullname() }</h6>
-											<ul class="rate">
-												<li><i class="fa fa-star-o"></i></li>
-												<li><i class="fa fa-star-o"></i></li>
-												<li><i class="fa fa-star-o"></i></li>
-												<li><i class="fa fa-star-o"></i></li>
-												<li><i class="fa fa-star-o"></i></li>
-												<li>(18) Reviews</li>
-											</ul>
-											<span class="price"><div class="icon">
-													<img src="assets/images/listing-icon-01.png" alt="">
-												</div> ${product.getGia()}</span> <span class="details">Danh mục:
-												<em>${product.getDanhmuc().getTendanhmuc()}</em>
-											</span>
-											<ul class="info">
-												<li><img src="assets/images/listing-icon-02.png" alt="">
-													Mô tả: ${product.getMota()}</li>
-										
-											</ul>
-											<div class="main-white-button">
-												<a href="Contact.jsp"><i class="fa fa-eye"></i> Contact
-													Now</a>
+								<c:forEach var="product"
+									items="${f:getProductbyname(param.namekeyword)}">
+									<div class="col-lg-12">
+										<div class="owl-carousel owl-listing">
+											<div class="item">
+												<div class="row">
+													<div class="col-lg-12">
+														<div class="listing-item">
+															<div class="left-image">
+																<a href="#"><img src="${product.getHinhanh() }"
+																	alt=""></a>
+															</div>
+															<div class="right-content align-self-center"
+																style="padding: 0; margin-left: 30px">
+																<a href="#"><h4>${product.getName()}</h4></a>
+																<h6>by: ${product.getNguoitao().getFullname() }</h6>
+																<ul class="rate">
+																	<li><i class="fa fa-star-o"></i></li>
+																	<li><i class="fa fa-star-o"></i></li>
+																	<li><i class="fa fa-star-o"></i></li>
+																	<li><i class="fa fa-star-o"></i></li>
+																	<li><i class="fa fa-star-o"></i></li>
+																	<li>(18) Reviews</li>
+																</ul>
+																<span class="price"><div class="icon">
+																		<img src="assets/images/listing-icon-01.png" alt="">
+																	</div> ${product.getGia()} vnđ</span> <span class="details">Danh
+																	mục: <em>${product.getDanhmuc().getTendanhmuc()}</em>
+																</span>
+																<ul class="info">
+																	<li><img src="assets/images/listing-icon-02.png"
+																		alt=""> Mô tả: ${product.getMota()}</li>
+
+																</ul>
+																<div class="main-white-button">
+																	<a href="Contact.jsp"><i class="fa fa-eye"></i>
+																		Contact Now</a>
+																</div>
+															</div>
+														</div>
+													</div>
+
+												</div>
 											</div>
 										</div>
 									</div>
-								</div>
+								</c:forEach>
+								<c:set var="tong"
+									value="${f:demProductsearch(param.namekeyword)}"></c:set>
+								<c:choose>
+									<c:when test="${tong%3!=0 }">
+										<c:set var="sotrang" value="${tong/3 + 1}"></c:set>
 
+									</c:when>
+									<c:otherwise>
+										<c:set var="sotrang" value="${tong/3}"></c:set>
+									</c:otherwise>
+								</c:choose>
+								<div style="display: flex">
+									<c:forEach var="i" begin="1" end="${sotrang}" step="1">
+										<a
+											style="text-align: center; margin: auto; font-size: 22px; color: black; font-weight: 600"
+											href="index?vitri=${i }">${i }</a>
+									</c:forEach>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				</c:forEach>
-			</div>
-		</div>
-	</div>
-	
+				</c:when>
+				<c:otherwise>
+					<c:set var="soluong" value="3"></c:set>
+					<c:choose>
+
+						<c:when test="${param.vitri == null}">
+							<c:set var="vitri" value="0"></c:set>
+						</c:when>
+						<c:otherwise>
+							<c:set var="vitri" value="${(param.vitri - 1)*3}"></c:set>
+						</c:otherwise>
+					</c:choose>
+					<div class="recent-listing" style="margin-top: 0">
+						<div class="container">
+							<div class="row">
+								<c:forEach var="product"
+									items="${f:getAllProductPhanTrang(vitri, soluong)}">
+									<div class="col-lg-12">
+										<div class="owl-carousel owl-listing">
+											<div class="item">
+												<div class="row">
+													<div class="col-lg-12">
+														<div class="listing-item">
+															<div class="left-image">
+																<a href="#"><img src="${product.getHinhanh() }"
+																	alt=""></a>
+															</div>
+															<div class="right-content align-self-center"
+																style="padding: 0; margin-left: 30px">
+																<a href="#"><h4>${product.getName()}</h4></a>
+																<h6>by: ${product.getNguoitao().getFullname() }</h6>
+																<ul class="rate">
+																	<li><i class="fa fa-star-o"></i></li>
+																	<li><i class="fa fa-star-o"></i></li>
+																	<li><i class="fa fa-star-o"></i></li>
+																	<li><i class="fa fa-star-o"></i></li>
+																	<li><i class="fa fa-star-o"></i></li>
+																	<li>(18) Reviews</li>
+																</ul>
+																<span class="price"><div class="icon">
+																		<img src="assets/images/listing-icon-01.png" alt="">
+																	</div> ${product.getGia()} vnđ</span> <span class="details">Danh
+																	mục: <em>${product.getDanhmuc().getTendanhmuc()}</em>
+																</span>
+																<ul class="info">
+																	<li><img src="assets/images/listing-icon-02.png"
+																		alt=""> Mô tả: ${product.getMota()}</li>
+
+																</ul>
+																<div class="main-white-button">
+																	<a href="Contact.jsp"><i class="fa fa-eye"></i>
+																		Contact Now</a>
+																</div>
+															</div>
+														</div>
+													</div>
+
+												</div>
+											</div>
+										</div>
+									</div>
+								</c:forEach>
+								<c:set var="tong" value="${f:demProduct()}"></c:set>
+								<c:choose>
+									<c:when test="${tong%3!=0 }">
+										<c:set var="sotrang" value="${tong/3 + 1}"></c:set>
+
+									</c:when>
+									<c:otherwise>
+										<c:set var="sotrang" value="${tong/3}"></c:set>
+									</c:otherwise>
+								</c:choose>
+								<div style="display: flex">
+									<c:forEach var="i" begin="1" end="${sotrang}" step="1">
+										<a
+											style="text-align: center; margin: auto; font-size: 22px; color: black; font-weight: 600"
+											href="index?vitri=${i }">${i }</a>
+									</c:forEach>
+								</div>
+							</div>
+						</div>
+					</div>
+				</c:otherwise>
+			</c:choose>
+		</c:when>
+		<c:otherwise>
+			<c:choose>
+				<c:when test="${param.namekeyword!=null }">
+					<c:set var="soluong" value="3"></c:set>
+					<c:choose>
+
+						<c:when test="${param.vitri == null}">
+							<c:set var="vitri" value="0"></c:set>
+						</c:when>
+						<c:otherwise>
+							<c:set var="vitri" value="${(param.vitri - 1)*3}"></c:set>
+						</c:otherwise>
+					</c:choose>
+					<div class="recent-listing" style="margin-top: 0">
+						<div class="container">
+							<div class="row">
+								<c:forEach var="product"
+									items="${f:getProductbyname(param.namekeyword)}">
+									<div class="col-lg-12">
+										<div class="owl-carousel owl-listing">
+											<div class="item">
+												<div class="row">
+													<div class="col-lg-12">
+														<div class="listing-item">
+															<div class="left-image">
+																<a href="#"><img src="${product.getHinhanh() }"
+																	alt=""></a>
+															</div>
+															<div class="right-content align-self-center"
+																style="padding: 0; margin-left: 30px">
+																<a href="#"><h4>${product.getName()}</h4></a>
+																<h6>by: ${product.getNguoitao().getFullname() }</h6>
+																<ul class="rate">
+																	<li><i class="fa fa-star-o"></i></li>
+																	<li><i class="fa fa-star-o"></i></li>
+																	<li><i class="fa fa-star-o"></i></li>
+																	<li><i class="fa fa-star-o"></i></li>
+																	<li><i class="fa fa-star-o"></i></li>
+																	<li>(18) Reviews</li>
+																</ul>
+																<span class="price"><div class="icon">
+																		<img src="assets/images/listing-icon-01.png" alt="">
+																	</div> ${product.getGia()} vnđ</span> <span class="details">Danh
+																	mục: <em>${product.getDanhmuc().getTendanhmuc()}</em>
+																</span>
+																<ul class="info">
+																	<li><img src="assets/images/listing-icon-02.png"
+																		alt=""> Mô tả: ${product.getMota()}</li>
+
+																</ul>
+																<div class="main-white-button">
+																	<a href="Contact.jsp"><i class="fa fa-eye"></i>
+																		Contact Now</a>
+																</div>
+															</div>
+														</div>
+													</div>
+
+												</div>
+											</div>
+										</div>
+									</div>
+								</c:forEach>
+								<c:set var="tong"
+									value="${f:demProductsearch(param.namekeyword)}"></c:set>
+								<c:choose>
+									<c:when test="${tong%3!=0 }">
+										<c:set var="sotrang" value="${tong/3 + 1}"></c:set>
+
+									</c:when>
+									<c:otherwise>
+										<c:set var="sotrang" value="${tong/3}"></c:set>
+									</c:otherwise>
+								</c:choose>
+								<div style="display: flex">
+									<c:forEach var="i" begin="1" end="${sotrang}" step="1">
+										<a
+											style="text-align: center; margin: auto; font-size: 22px; color: black; font-weight: 600"
+											href="index?vitri=${i }">${i }</a>
+									</c:forEach>
+								</div>
+							</div>
+						</div>
+					</div>
+				</c:when>
+				<c:otherwise>
+					<c:set var="soluong" value="3"></c:set>
+					<c:choose>
+
+						<c:when test="${param.vitri == null}">
+							<c:set var="vitri" value="0"></c:set>
+						</c:when>
+						<c:otherwise>
+							<c:set var="vitri" value="${(param.vitri - 1)*3}"></c:set>
+						</c:otherwise>
+					</c:choose>
+					<div class="recent-listing" style="margin-top: 0">
+						<div class="container">
+							<div class="row">
+								<c:forEach var="product"
+									items="${f:getAllproductbyDanhmuc(vitri, soluong,param.danhmuc)}">
+									<div class="col-lg-12">
+										<div class="owl-carousel owl-listing">
+											<div class="item">
+												<div class="row">
+													<div class="col-lg-12">
+														<div class="listing-item">
+															<div class="left-image">
+																<a href="#"><img src="${product.getHinhanh() }"
+																	alt=""></a>
+															</div>
+															<div class="right-content align-self-center"
+																style="padding: 0; margin-left: 30px">
+																<a href="#"><h4>${product.getName()}</h4></a>
+																<h6>by: ${product.getNguoitao().getFullname() }</h6>
+																<ul class="rate">
+																	<li><i class="fa fa-star-o"></i></li>
+																	<li><i class="fa fa-star-o"></i></li>
+																	<li><i class="fa fa-star-o"></i></li>
+																	<li><i class="fa fa-star-o"></i></li>
+																	<li><i class="fa fa-star-o"></i></li>
+																	<li>(18) Reviews</li>
+																</ul>
+																<span class="price"><div class="icon">
+																		<img src="assets/images/listing-icon-01.png" alt="">
+																	</div> ${product.getGia()} vnđ</span> <span class="details">Danh
+																	mục: <em>${product.getDanhmuc().getTendanhmuc()}</em>
+																</span>
+																<ul class="info">
+																	<li><img src="assets/images/listing-icon-02.png"
+																		alt=""> Mô tả: ${product.getMota()}</li>
+
+																</ul>
+																<div class="main-white-button">
+																	<a href="Contact.jsp"><i class="fa fa-eye"></i>
+																		Contact Now</a>
+																</div>
+															</div>
+														</div>
+													</div>
+
+												</div>
+											</div>
+										</div>
+									</div>
+								</c:forEach>
+								<c:set var="tong" value="${f:demProduct()}"></c:set>
+								<c:choose>
+									<c:when test="${tong%3!=0 }">
+										<c:set var="sotrang" value="${tong/3 + 1}"></c:set>
+
+									</c:when>
+									<c:otherwise>
+										<c:set var="sotrang" value="${tong/3}"></c:set>
+									</c:otherwise>
+								</c:choose>
+								<div style="display: flex">
+									<c:forEach var="i" begin="1" end="${sotrang}" step="1">
+										<a
+											style="text-align: center; margin: auto; font-size: 22px; color: black; font-weight: 600"
+											href="index?vitri=${i }">${i }</a>
+									</c:forEach>
+								</div>
+							</div>
+						</div>
+					</div>
+				</c:otherwise>
+			</c:choose>
+		</c:otherwise>
+	</c:choose>
+
+
+
+
+
+
 
 
 

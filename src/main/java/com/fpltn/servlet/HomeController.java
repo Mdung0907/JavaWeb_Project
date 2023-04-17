@@ -8,7 +8,6 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 
 @WebServlet(urlPatterns = { "/category", "/login", "/contact", "/detail", "/index", "/management", "/information", "/logout",
 		"/listing" })
@@ -18,7 +17,7 @@ public class HomeController extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+
 		String path = req.getServletPath();
 		switch (path) {
 		case "/category":
@@ -52,7 +51,7 @@ public class HomeController extends HttpServlet {
 		case "/listing":
 			doGetListing(req, resp);
 			break;
-			
+
 		case "/logout":
 			doGetLogout(req, resp);
 			break;
@@ -85,7 +84,7 @@ public class HomeController extends HttpServlet {
 		RequestDispatcher requestDispatcher = req.getRequestDispatcher("index.jsp");
 		requestDispatcher.forward(req, resp);
 	}
-	
+
 	private void doGetLogout(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		RequestDispatcher requestDispatcher = req.getRequestDispatcher("Logout.jsp");
 		requestDispatcher.forward(req, resp);
