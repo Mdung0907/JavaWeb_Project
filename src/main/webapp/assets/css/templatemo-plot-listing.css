@@ -1803,29 +1803,29 @@ Pre Loader
 	pointer-events: none;
 }
 
-@
--webkit-keyframes dot { 50% {
+
+@-webkit-keyframes dot { 50% {
 	-webkit-transform: translateX(96px);
 	transform: translateX(96px);
 }
 
 }
-@
-keyframes dot { 50% {
+
+@keyframes dot { 50% {
 	-webkit-transform: translateX(96px);
 	transform: translateX(96px);
 }
 
 }
-@
--webkit-keyframes dots { 50% {
+
+@-webkit-keyframes dots { 50% {
 	-webkit-transform: translateX(-31px);
 	transform: translateX(-31px);
 }
 
 }
-@
-keyframes dots { 50% {
+
+@keyframes dots { 50% {
 	-webkit-transform: translateX(-31px);
 	transform: translateX(-31px);
 }

@@ -24,7 +24,7 @@ public class Product implements java.io.Serializable {
 	private Integer id;
 	private Danhmuc danhmuc;
 	private String name;
-	private String gia;
+	private Double gia;
 	private Account nguoitao;
 	private Date ngaytao;
 	private Boolean tinhtrang;
@@ -33,7 +33,7 @@ public class Product implements java.io.Serializable {
 	public Product() {
 	}
 
-	public Product(Danhmuc danhmuc, String name, String gia,Account nguoitao,Date ngaytao,Boolean tinhtrang,
+	public Product(Danhmuc danhmuc, String name, Double gia,Account nguoitao,Date ngaytao,Boolean tinhtrang,
 			String mota) {
 		this.danhmuc = danhmuc;
 		this.name = name;
@@ -43,7 +43,7 @@ public class Product implements java.io.Serializable {
 		this.tinhtrang = tinhtrang;
 		this.mota = mota;
 	}
-	public Product(Integer id, String name,Danhmuc danhmuc, String gia, Account nguoitao,Date newdate, String mota,Boolean tinhtrang,String hinhanh) {
+	public Product(Integer id, String name,Danhmuc danhmuc, Double gia, Account nguoitao,Date newdate, String mota,Boolean tinhtrang,String hinhanh) {
 		this.id = id;
 		this.name = name;
 		this.danhmuc = danhmuc;
@@ -55,7 +55,7 @@ public class Product implements java.io.Serializable {
 		this.hinhanh=hinhanh;
 	}
 
-	public Product(String name,Danhmuc danhmuc, String gia, Account nguoitao,Date newdate, String mota,Boolean tinhtrang,String hinhanh) {
+	public Product(String name,Danhmuc danhmuc, Double gia, Account nguoitao,Date newdate, String mota,Boolean tinhtrang,String hinhanh) {
 		this.name = name;
 		this.danhmuc = danhmuc;
 		this.gia = gia;
@@ -98,11 +98,11 @@ public class Product implements java.io.Serializable {
 	}
 
 	@Column(name = "gia", length = 10)
-	public String getGia() {
+	public Double getGia() {
 		return this.gia;
 	}
 
-	public void setGia(String gia) {
+	public void setGia(Double gia) {
 		this.gia = gia;
 	}
 

@@ -51,7 +51,7 @@ public class SVAddproduct extends HttpServlet {
 		String name = request.getParameter("name");
 		int danhmuc = Integer.parseInt(request.getParameter("dm"));
 		Danhmuc dm = DanhmucDao.findById(danhmuc);
-		String gia = request.getParameter("gia");
+		double gia = Double.parseDouble(request.getParameter("gia"));
 		String mota = request.getParameter("mota");
 		String hinhanh = request.getParameter("hinhanh");
 		Date newdate = new Date();

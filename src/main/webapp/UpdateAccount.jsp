@@ -26,14 +26,14 @@
 						<div class="form-group">
 							<label for="exampleInputEmail1">ID</label> <input type="email"
 								class="form-control" id="exampleInputEmail1"
-								aria-describedby="emailHelp" name="id" placeholder="Email"
+								aria-describedby="emailHelp" name="id" 
 								value="${item.getId() }" readonly="true">
 
 						</div>
 						<div class="form-group">
 							<label for="exampleInputEmail1">Tên đăng nhập</label> <input
 								type="email" class="form-control" id="exampleInputEmail1"
-								aria-describedby="emailHelp" name="username" placeholder="Email"
+								aria-describedby="emailHelp" name="username" 
 								value="${item.getUsername() }" readonly="true">
 
 						</div>
@@ -41,18 +41,18 @@
 							<label for="exampleInputEmail1">Tên</label> <input type="text"
 								class="form-control" id="exampleInputEmail1"
 								aria-describedby="emailHelp" name="fullname"
-								placeholder="Nhập tên" value="${item.getFullname() }">
+								 value="${item.getFullname() }" required>
 						</div>
 						<div class="form-group">
 							<label for="exampleInputPassword1">Mật khẩu</label> <input
 								type="password" class="form-control" id="exampleInputPassword1"
-								name="password" placeholder="Mật khẩu"
+								name="password" required
 								value="${item.getPassword()}">
 						</div>
 						<div class="form-group">
 							<label for="exampleInputEmail1">Email</label> <input type="email"
 								class="form-control" id="exampleInputEmail1"
-								aria-describedby="emailHelp" name="email" placeholder="Email"
+								aria-describedby="emailHelp" name="email" required
 								value="${item.getEmail() }">
 						</div>
 						<div class="form-group">

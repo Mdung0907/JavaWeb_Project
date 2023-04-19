@@ -41,6 +41,7 @@ public class SVLogin extends HttpServlet {
 		if(acc!=null) {
 			session.setAttribute("AccountLogin", acc);
 			session.setAttribute("Userlogin", true);
+			session.setAttribute("thongbao", false);
 			response.sendRedirect("/MyWeb");
 		}
 		else {

@@ -28,7 +28,7 @@
 					<div class="form-group">
 						<label for="exampleInputEmail1">Tên sản phẩm</label> <input
 							type="text" class="form-control" id="exampleInputEmail1"
-							aria-describedby="emailHelp" name="name" placeholder="Tên">
+							aria-describedby="emailHelp" name="name" placeholder="Tên" required>
 					</div>
 					<div class="form-group">
 						<label for="exampleInputEmail1">Danh mục</label> <select name="dm"
@@ -41,18 +41,18 @@
 					<div class="form-group">
 						<label for="exampleInputEmail1">Giá</label> <input type="text"
 							class="form-control" id="exampleInputEmail1"
-							aria-describedby="emailHelp" name="gia" placeholder="Nhập giá">
+							aria-describedby="emailHelp" name="gia" placeholder="Nhập giá" required>
 					</div>
 					<div class="form-group">
 						<label for="exampleInputEmail1">Mô tả</label>
 						<textarea class="form-control" id="exampleInputEmail1"
-							aria-describedby="emailHelp" name="mota" placeholder="Mô tả"></textarea>
+							aria-describedby="emailHelp" name="mota" placeholder="Mô tả" required></textarea>
 					</div>
 					<div class="form-group">
 						<label for="exampleInputEmail1">Hình ảnh</label> <input
 							type="file" class="form-control" id="inputImage"
-							aria-describedby="emailHelp" name="role"> <input
-							type="hidden" id="srcImg" name="hinhanh"></input>
+							aria-describedby="emailHelp" name="role" required> <input
+							type="hidden" id="srcImg" name="hinhanh"></input >
 							<img style="width:150px" src="" id="imgload">
 
 					</div>

@@ -10,17 +10,18 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
 	crossorigin="anonymous"></script>
-	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-	
-<div class="modal fade qwe" id="qwe" tabindex="-1"
-	role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+<div class="modal fade qwe" id="qwe" tabindex="-1" role="dialog"
+	aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
 				<h5 class="modal-title" id="exampleModalLabel">Cập nhật sản
 					phẩm</h5>
-					<a href="management">
+				<a href="management">
 					<button type="button" class="close" data-bs-dismiss="modal"
 						aria-label="Close">
 						<span aria-hidden="true">&times;</span>
@@ -41,7 +42,7 @@
 							<label for="exampleInputEmail1">Tên sản phẩm</label> <input
 								type="text" class="form-control" id="exampleInputEmail1"
 								aria-describedby="emailHelp" name="name" placeholder="Tên"
-								value="${item.getName() }">
+								value="${item.getName() }" required>
 						</div>
 						<div class="form-group">
 							<label for="exampleInputEmail1">Danh mục</label> <select
@@ -55,7 +56,7 @@
 							<label for="exampleInputEmail1">Giá</label> <input type="text"
 								class="form-control" id="exampleInputEmail1"
 								aria-describedby="emailHelp" name="gia" placeholder="Nhập giá"
-								value="${item.getGia() }">
+								value="${item.getGia() }" required>
 						</div>
 						<div class="form-group">
 							<label for="exampleInputEmail1">Người tạo</label> <input
@@ -73,13 +74,12 @@
 							<label for="exampleInputEmail1">Tình trạng</label> <input
 								class="form-control" id="exampleInputEmail1"
 								aria-describedby="emailHelp" name="tinhtrang"
-								placeholder="Mô tả" value="${item.getTinhtrang() }"></input>
+								placeholder="Mô tả" value="${item.getTinhtrang() }" required></input>
 						</div>
 						<div class="form-group">
 							<label for="exampleInputEmail1">Mô tả</label>
 							<textarea class="form-control" id="exampleInputEmail1"
-								aria-describedby="emailHelp" name="mota" placeholder="Mô tả"
-								>${item.getMota() }</textarea>
+								aria-describedby="emailHelp" name="mota" placeholder="Mô tả">${item.getMota() }</textarea required>
 						</div>
 						<div class="form-group">
 							<label for="exampleInputEmail1">Hình ảnh</label> <input
@@ -91,9 +91,10 @@
 						</div>
 					</c:if>
 					<div class="modal-footer">
-					<a href="management">
-						<button type="button" class="btn btn-secondary"
-							data-bs-dismiss="modal">Đóng</button></a>
+						<a href="management">
+							<button type="button" class="btn btn-secondary"
+								data-bs-dismiss="modal">Đóng</button>
+						</a>
 						<button type="submit" class="btn btn-primary">Lưu</button>
 					</div>
 				</form>
@@ -103,28 +104,34 @@
 		</div>
 	</div>
 </div>
+
 <script>
+document.querySelector("#inputImage").addEventListener("change", readFile);
+
+function readFile() {
+	alert('huhu')
+	const FR = new FileReader();
+	FR.addEventListener("load", function(evt) {
+		document.querySelector("#imgload").src = evt.target.result;
+		document.querySelector("#srcImg").value = evt.target.result;
+		alert(document.querySelector("#srcImg").value);
+	});
+	FR.readAsDataURL(this.files[0]);
+}
+
 	window.addEventListener("load", function() {
 		let params = new URLSearchParams(window.location.search);
 		var paramID = params.get("id");
 		var paramName = params.get("product");
-		if (paramName != null && paramID!=null) {
+		if (paramName != null && paramID != null) {
 			$('.qwe').modal('show');
 		}
+
+		
 	})
-
-	document.querySelector("#inputImage").addEventListener("change", readFile);
-
-	function readFile() {
-		const FR = new FileReader();
-		FR.addEventListener("load", function(evt) {
-			document.querySelector("#imgload").src = evt.target.result;
-			document.querySelector("#srcImg").value = evt.target.result;
-			/* alert(document.querySelector("#srcImg").value); */
-		});
-		FR.readAsDataURL(this.files[0]);
-	}
 </script>
+
+
 
 
 

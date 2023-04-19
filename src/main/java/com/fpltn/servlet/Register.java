@@ -54,13 +54,14 @@ public class Register extends HttpServlet {
 		Account acccc = AccountDao.findAccountbyname(usname);
 		String pw = request.getParameter("password");
 		String email = request.getParameter("email");
-		if (acccc != null) {
+		if (acccc == null) {
 			Account acc = new Account(usname, pw, name, email, false);
 			AccountDao.saveAccount(acc);
-			session.setAttribute("thongbao", null);
+			session.setAttribute("thongbao", false);
 			response.sendRedirect("Login.jsp");
 		} else {
-			response.sendRedirect("login?message="+URLEncoder.encode("Tên đăng nhập đã tồn tại", "UTF-8"));
+			session.setAttribute("thongbao", true);
+			response.sendRedirect("Login.jsp");
 		}
 
 		doGet(request, response);

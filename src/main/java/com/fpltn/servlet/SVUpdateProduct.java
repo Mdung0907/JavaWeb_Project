@@ -61,7 +61,7 @@ public class SVUpdateProduct extends HttpServlet {
 			String name = request.getParameter("name");
 			int danhmuc = Integer.parseInt(request.getParameter("dm"));
 			Danhmuc dm = DanhmucDao.findById(danhmuc);
-			String gia = request.getParameter("gia");
+			double gia =Double.parseDouble( request.getParameter("gia"));
 			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 			Date ngaytao;
 			String mota = request.getParameter("mota");
@@ -87,7 +87,7 @@ public class SVUpdateProduct extends HttpServlet {
 			int pnguoitao = Integer.parseInt(request.getParameter("nguoitao"));
 			Account pnt = AccountDao.findById(pnguoitao);
 			Danhmuc pdm = DanhmucDao.findById(pdanhmuc);
-			String pgia = request.getParameter("gia");
+			double pgia = Double.parseDouble( request.getParameter("gia"));
 			String pmota = request.getParameter("mota");
 			String phinhanh = request.getParameter("hinhanh");
 			SimpleDateFormat formatter2 = new SimpleDateFormat("yyyy-MM-dd");

@@ -23,11 +23,26 @@
 		<function-signature>java.util.List getProduct()</function-signature>
 	</function>
 	<function>
+		<name>getAllproductbyGia</name>
+		<function-class>com.fpltn.dao.ProductDao</function-class>
+		<function-signature>java.util.List getProductbyGia()</function-signature>
+	</function>
+	<function>
+		<name>ascProduct</name>
+		<function-class>com.fpltn.dao.ProductDao</function-class>
+		<function-signature>java.util.List sortProductasc()</function-signature>
+	</function>
+	<function>
+		<name>descProduct</name>
+		<function-class>com.fpltn.dao.ProductDao</function-class>
+		<function-signature>java.util.List sortProductdesc()</function-signature>
+	</function>
+	<function>
 		<name>getAllproductbyAccount</name>
 		<function-class>com.fpltn.dao.ProductDao</function-class>
 		<function-signature>java.util.List getProductbyAccount(int)</function-signature>
 	</function>
-		<function>
+	<function>
 		<name>getAllproductbyDanhmuc</name>
 		<function-class>com.fpltn.dao.ProductDao</function-class>
 		<function-signature>java.util.List getProductbyDanhmuc(int,int,int)</function-signature>
@@ -61,6 +76,11 @@
 		<name>demProductsearch</name>
 		<function-class>com.fpltn.dao.ProductDao</function-class>
 		<function-signature>Long DemSoLuongProduct(java.lang.String)</function-signature>
+	</function>
+		<function>
+		<name>demProducttest</name>
+		<function-class>com.fpltn.dao.ProductDao</function-class>
+		<function-signature>Long DemSoLuongProducttest()</function-signature>
 	</function>
 	<!-- Danhmuc -->
 	<function>

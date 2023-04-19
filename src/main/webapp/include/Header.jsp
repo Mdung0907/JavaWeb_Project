@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <header class="header-area header-sticky wow slideInDown"
 	data-wow-duration="0.75s" data-wow-delay="0s">
 	<div class="container">

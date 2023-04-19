@@ -11,7 +11,6 @@
 		var confilm = document.frmRegister.confilm.value;
 		var email = document.frmRegister.email.value;
 		const thongbaospan = document.getElementById("testthongbao");
-		var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 		if (name == "") {
 			alert('Họ và tên trống')
 			return false;
@@ -34,11 +33,9 @@
 		} else if (email == '') {
 			alert('Email trống')
 			return false;
-		}
-		 else {
-			alert('Đăng kí thành công')
-			return true;
-		}
+		
+		}else{
+			return true;}
 	}
 	function Validatelogin() {
 		var username = document.frmLogin.uname.value;
@@ -53,22 +50,7 @@
 			return true;
 		}
 	}
-	function ValidateEmail(inputText)
-	{
-	var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-	if(inputText.value.match(mailformat))
-	{
-	alert("Valid email address!");
-	
-	return true;
-	}
-	else
-	{
-	alert("You have entered an invalid email address!");
-	
-	return false;
-	}
-	}
+
 </script>
 </head>
 <body>
@@ -94,9 +76,9 @@
 							for="check"><span class="icon"></span> Lưu mật khẩu</label>
 					</div>
 					<div class="group">
-					<span style="color: red">${param.message }</span>
+						<span style="color: red">${param.message }</span>
 					</div>
-					
+
 					<div class="group">
 						<input type="submit" class="button" value="Đăng nhập">
 					</div>
@@ -123,23 +105,19 @@
 					<div class="group">
 						<label for="pass" class="label">Nhập lại mật khẩu</label> <input
 							id="passconfilm" type="password" class="input"
-							data-type="password" name="confilm">
+							data-type="password" name="confilm"  >
 					</div>
 					<div class="group">
 						<label for="pass" class="label">Email</label> <input id="email"
-							type="text" class="input" name="email">
+							type="email" class="input" name="email">
 
 					</div>
-					<div class="group">
-						<span id="testthongbao">${thongbao }</span>
-					</div>
-					<!-- 					<div class="group">
-						<label for="pass" class="label">Giới tính</label> <input
-							type="checkbox" id="vehicle2" name="gioitinhnam"> <label
-							for="vehicle2">Nam</label><br> <input type="checkbox"
-							id="vehicle3" name="gioitinhnu"> <label for="vehicle3">
-							Nữ</label><br>
-					</div> -->
+					<c:if test="${thongbao==true }">
+						<div class="group">
+							<span style="color: red" id="testthongbao">Tên đăng nhập đã tồn tại</span>
+						</div>
+					</c:if>
+
 					<div class="group">
 						<button type="submit" class="button">Đăng kí</button>
 					</div>
