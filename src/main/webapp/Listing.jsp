@@ -21,6 +21,7 @@
 	<%@include file="include/Header.jsp"%>
 	<%@include file="CreateProduct.jsp"%>
 	<%@include file="UpdateProduct.jsp"%>
+	<%@include file="ConfirmDeleteProduct.jsp"%>
 	<div class="page-heading">
 		<div class="container">
 			<div class="row">
@@ -76,7 +77,7 @@
 
 												<div class="main-white-button">
 													<a style="color: red"
-														href="DeleteProduct?id=${product.getId() }"><i
+														href="Listing.jsp?id=${product.getId() }"><i
 														class="fa fa-eye"></i> Xóa</a> <a
 														href="Listing.jsp?product=${product.getName() }&idproduct=${product.getId()}"><i
 														class="fa fa-eye"></i> Chỉnh sửa</a>

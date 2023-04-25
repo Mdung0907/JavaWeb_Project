@@ -5,12 +5,13 @@
 <body>
 	<%@include file="include/Header.jsp"%>
 	<%@include file="UpdateAccount.jsp"%>
+		<%@include file="ConfirmDeleteAccount.jsp"%>
 	<main class="main-banner ">
 
 		<div class="container" style="margin-top: -10%; color: white;">
 			<h2>Tài khoản của bạn</h2>
 			<button class="btncreate">
-				<a href="Delete?id=${AccountLogin.getId() }"
+				<a href="Information.jsp?idcc=${AccountLogin.getId() }"
 					style="color: red"> Xóa tài khoản</a>
 			</button>
 			<table class="table" style="margin-top: 3%; color: white;">

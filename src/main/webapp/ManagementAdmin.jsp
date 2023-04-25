@@ -7,7 +7,9 @@
 <body>
 	<%@include file="CreateProduct.jsp"%>
 	<%@include file="UpdateAccountAdmin.jsp"%>
-<%@include file="UpdateProductAdmin.jsp"%> 
+	<%@include file="UpdateProductAdmin.jsp"%>
+	<%@include file="ConfirmDeleteProduct.jsp"%>
+		<%@include file="ConfirmDeleteAccount.jsp"%>
 	<main class="main-banner ">
 		<div class="container" style="margin-top: -7%; color: white;">
 
@@ -46,16 +48,18 @@
 								<td><c:choose>
 										<c:when test="${account.getRole() ==false}">
 
-											<a href="DeleteAccountAdmin?id=${account.getId() }"
+											<a href="ManagementAdmin.jsp?idacc=${account.getId() }&check=admin"
 												style="color: red"> Xóa</a>
 
-											<a href="ManagementAdmin.jsp?account&accid=${account.getId()}">
+											<a
+												href="ManagementAdmin.jsp?account&accid=${account.getId()}">
 												<button type="button">Cập nhật</button>
 											</a>
 
 										</c:when>
 										<c:otherwise>
-											<a href="ManagementAdmin.jsp?account&accid=${account.getId()}">
+											<a
+												href="ManagementAdmin.jsp?account&accid=${account.getId()}">
 												<button type="button">Cập nhật</button>
 											</a>
 										</c:otherwise>
@@ -97,9 +101,9 @@
 								<td>${product.getMota()}</td>
 								<td>${product.getTinhtrang()}</td>
 								<td><img src="${product.getHinhanh() }"></td>
-								<td><a href="DeleteProductAdmin?id=${product.getId() }"
+								<td><a href="ManagementAdmin.jsp?id=${product.getId() }&ischeck=admin"
 									style="color: red"> Xóa</a> <a
-									href="ManagementAdmin.jsp?product=true&id=${product.getId()}">
+									href="ManagementAdmin.jsp?idpro=${product.getId()}">
 										<button type="button">Cập nhật</button>
 								</a></td>
 							</tr>

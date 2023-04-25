@@ -12,45 +12,45 @@
 		var email = document.frmRegister.email.value;
 		const thongbaospan = document.getElementById("testthongbao");
 		if (name == "") {
-			alert('Họ và tên trống')
+			document.getElementById("errname").innerHTML = "Tên không được để trống"
 			return false;
 		}
 		if (username == "") {
-			alert('Tên đăng nhập trống')
+			document.getElementById("errusname").innerHTML = "Tên đăng nhập không được để trống"
 			return false;
 		} else if (password == '') {
-			alert('Mật khẩu trống')
+			document.getElementById("errpass").innerHTML = "Mật khẩu không được để trống"
 			return false;
 		} else if (password.length<6||password.length>12) {
-			alert('Mật khẩu phải từ 6-12 kí tự')
+			document.getElementById("errpass").innerHTML = "Mật khẩu phải từ 6-12 kí tự"
 			return false;
 		} else if (confilm == '') {
-			alert('Vui lòng nhập lại mật khẩu')
+			document.getElementById("errconfirm").innerHTML = "Nhập lại mật khẩu không được để trống"
 			return false;
 		} else if (confilm != password) {
-			alert('Nhập lại mật khẩu phải trùng với mật khẩu')
+			document.getElementById("errconfirm").innerHTML = "Nhập lại mật khẩu phải trùng với mật khẩu"
 			return false;
-		} else if (email == '') {
-			alert('Email trống')
+		} else if (email == '') {	
+			document.getElementById("errmail").innerHTML = "Email không được để trống"
 			return false;
-		
-		}else{
-			return true;}
+
+		} else {
+			return true;
+		}
 	}
 	function Validatelogin() {
 		var username = document.frmLogin.uname.value;
 		var password = document.frmLogin.psw.value;
 		if (username == "") {
-			alert('Tên đăng nhập trống')
+			document.getElementById("errusnamelogin").innerHTML = "Tên đăng nhập không được để trống"
 			return false;
 		} else if (password == "") {
-			alert('Mật khẩu trống')
+			document.getElementById("errpasslogin").innerHTML = "Mật khẩu không được để trống"
 			return false;
 		} else {
 			return true;
 		}
 	}
-
 </script>
 </head>
 <body>
@@ -66,10 +66,12 @@
 					<div class="group">
 						<label for="user" class="label">Tên đăng nhập</label> <input
 							id="user" type="text" class="input" name="uname">
+							<span id="errusnamelogin" style="color: red"></span>
 					</div>
 					<div class="group">
 						<label for="pass" class="label">Mật khẩu</label> <input id="pass"
 							type="password" class="input" data-type="password" name="psw">
+							<span id="errpasslogin" style="color: red"></span>
 					</div>
 					<div class="group">
 						<input id="check" type="checkbox" class="check" checked> <label
@@ -92,29 +94,33 @@
 					<div class="group">
 						<label for="fulname" class="label">Họ và tên</label> <input
 							id="fullname" type="text" class="input" name="fullname">
+						<span id="errname" style="color: red"></span>
 					</div>
 					<div class="group">
 						<label for="user" class="label">Tên đăng nhập</label> <input
-							id="user" type="text" class="input" name="user">
+							id="user" type="text" class="input" name="user"> <span
+							id="errusname" style="color: red"></span>
 					</div>
 					<div class="group">
 						<label for="pass" class="label">Mật khẩu</label> <input id="pass"
 							type="password" class="input" data-type="password"
-							name="password">
+							name="password"> <span id="errpass" style="color: red"></span>
 					</div>
 					<div class="group">
 						<label for="pass" class="label">Nhập lại mật khẩu</label> <input
 							id="passconfilm" type="password" class="input"
-							data-type="password" name="confilm"  >
+							data-type="password" name="confilm"> <span id="errconfirm"
+							style="color: red"></span>
 					</div>
 					<div class="group">
 						<label for="pass" class="label">Email</label> <input id="email"
-							type="email" class="input" name="email">
-
+							type="email" class="input" name="email"> <span
+							id="errmail" style="color: red"></span>
 					</div>
 					<c:if test="${thongbao==true }">
 						<div class="group">
-							<span style="color: red" id="testthongbao">Tên đăng nhập đã tồn tại</span>
+							<span style="color: red" id="testthongbao">Tên đăng nhập
+								đã tồn tại</span>
 						</div>
 					</c:if>
 

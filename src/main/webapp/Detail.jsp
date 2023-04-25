@@ -30,14 +30,17 @@
 					</div>
 
 					<div class="product-description" style="margin-left: 5%">
-						<div class="product-summary-container">
-							<h1 class="product-type">${product.getName() }</h1>
-							<p style="font-size: 20px" class="product-text-description">
+						<div class="product-summary-container" style="width: 1000%">
+							<h1 class="product-type" style="color:white;">${product.getName() }</h1>
+							<p style="font-size: 20px;color:white;" class="product-text-description"><span style="color:#ddd">Nhà cung cấp</span>: 
+								${product.getNguoitao().getFullname() }. 
+							</p>
+							<p style="font-size: 20px;color:white;" class="product-text-description"><span style="color:#ddd">Mô tả</span>: 
 								${product.getMota() }. 
 							</p>
 						</div>
-						 <div class="product-options d-flex align-items-center">
-							<a href="#"
+						 <div class="product-options d-flex align-items-center" >
+							<a href="#" style="color: blue"
 								class="option-btn d-flex align-items-center border-light"> <svg
 									xmlns="http://www.w3.org/2000/svg" height="20"
 									viewBox="0 0 24 24" width="20">
@@ -45,7 +48,7 @@
 									<path
 										d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z" />
 								</svg> Shipping
-							</a> <a href="#"
+							</a> <a href="#" style="color: blue"
 								class="option-btn d-flex align-items-center border-light"> <svg
 									xmlns="http://www.w3.org/2000/svg" height="24"
 									viewBox="0 0 24 24" width="24">
@@ -53,7 +56,7 @@
 									<path
 										d="M20 4H4v2h16V4zm1 10v-2l-1-5H4l-1 5v2h1v6h10v-6h4v6h2v-6h1zm-9 4H6v-4h6v4z" />
 								</svg> Stock
-							</a> <a href="#"
+							</a> <a href="#" style="color: blue"
 								class="option-btn d-flex align-items-center border-light"> <svg
 									xmlns="http://www.w3.org/2000/svg" height="24"
 									viewBox="0 0 24 24" width="24">

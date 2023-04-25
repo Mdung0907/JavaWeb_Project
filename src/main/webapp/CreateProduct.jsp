@@ -10,6 +10,10 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
 	crossorigin="anonymous"></script>
+
+<script
+	src="https://cdn.ckeditor.com/ckeditor5/37.1.0/classic/ckeditor.js"></script>
+
 <div class="modal fade xyz" id="exampleModal" tabindex="-1"
 	role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog" role="document">
@@ -28,7 +32,8 @@
 					<div class="form-group">
 						<label for="exampleInputEmail1">Tên sản phẩm</label> <input
 							type="text" class="form-control" id="exampleInputEmail1"
-							aria-describedby="emailHelp" name="name" placeholder="Tên" required>
+							aria-describedby="emailHelp" name="name" placeholder="Tên"
+							required>
 					</div>
 					<div class="form-group">
 						<label for="exampleInputEmail1">Danh mục</label> <select name="dm"
@@ -41,19 +46,22 @@
 					<div class="form-group">
 						<label for="exampleInputEmail1">Giá</label> <input type="text"
 							class="form-control" id="exampleInputEmail1"
-							aria-describedby="emailHelp" name="gia" placeholder="Nhập giá" required>
+							aria-describedby="emailHelp" name="gia" placeholder="Nhập giá"
+							required>
 					</div>
 					<div class="form-group">
 						<label for="exampleInputEmail1">Mô tả</label>
-						<textarea class="form-control" id="exampleInputEmail1"
-							aria-describedby="emailHelp" name="mota" placeholder="Mô tả" required></textarea>
+						<textarea class="form-control" id="mota"
+							aria-describedby="emailHelp" name="mota" placeholder="Mô tả"
+							required></textarea>
+
 					</div>
 					<div class="form-group">
 						<label for="exampleInputEmail1">Hình ảnh</label> <input
 							type="file" class="form-control" id="inputImage"
 							aria-describedby="emailHelp" name="role" required> <input
-							type="hidden" id="srcImg" name="hinhanh"></input >
-							<img style="width:150px" src="" id="imgload">
+							type="hidden" id="srcImg" name="hinhanh"></input> <img
+							style="width: 150px" src="" id="imgload">
 
 					</div>
 					<div class="modal-footer">
@@ -80,5 +88,17 @@
 		});
 		FR.readAsDataURL(this.files[0]);
 	}
+	
 </script>
+<script>
+                        ClassicEditor
+                                .create( document.querySelector( '#mota' ) )
+                                .then( testmota => {
+                                	document.querySelector("#mota").value = testmota;
+                                } )
+                                .catch( error => {
+                                        console.error( error );
+                                } );
+                </script>
+
 

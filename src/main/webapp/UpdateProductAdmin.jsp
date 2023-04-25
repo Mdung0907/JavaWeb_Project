@@ -2,19 +2,15 @@
 	pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="f" uri="/WEB-INF/laydulieu"%>
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-	crossorigin="anonymous">
+
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
 	crossorigin="anonymous"></script>
-
 <script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	src="https://cdn.ckeditor.com/ckeditor5/37.1.0/classic/ckeditor.js"></script>
 
-<div class="modal fade qwe" id="qwe" tabindex="-1" role="dialog"
+<div class="modal fade qwe" id="exampleModal" tabindex="-1" role="dialog"
 	aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
@@ -30,8 +26,8 @@
 			</div>
 			<div class="modal-body">
 				<form action="ServletUpdateAdmin" method="post">
-					<c:if test="${param.id !=null}">
-						<c:set var="item" value="${f:findProductbyId(param.id)}"></c:set>
+					<c:if test="${param.idpro !=null}">
+						<c:set var="item" value="${f:findProductbyId(param.idpro)}"></c:set>
 						<div class="form-group">
 							<label for="exampleInputEmail1">Mã sản phẩm</label> <input
 								type="text" class="form-control" id="exampleInputEmail1"
@@ -78,16 +74,16 @@
 						</div>
 						<div class="form-group">
 							<label for="exampleInputEmail1">Mô tả</label>
-							<textarea class="form-control" id="exampleInputEmail1"
-								aria-describedby="emailHelp" name="mota" placeholder="Mô tả">${item.getMota() }</textarea required>
+							<textarea class="form-control" id=motaupdateadmin required
+								aria-describedby="emailHelp" name="mota" placeholder="Mô tả">${item.getMota() }</textarea >
 						</div>
 						<div class="form-group">
 							<label for="exampleInputEmail1">Hình ảnh</label> <input
-								type="file" class="form-control" id="inputImage"
+								type="file" class="form-control" id="dataimage"
 								aria-describedby="emailHelp" name="role"> <input
-								type="hidden" id="srcImg" name="hinhanh"
+								type="hidden" id="srcImage" name="hinhanh"
 								value="${item.getHinhanh() }"></input> <img style="width: 150px"
-								src="${item.getHinhanh() }" id="imgload">
+								src="${item.getHinhanh() }" id="loadimg">
 						</div>
 					</c:if>
 					<div class="modal-footer">
@@ -106,30 +102,37 @@
 </div>
 
 <script>
-document.querySelector("#inputImage").addEventListener("change", readFile);
+document.querySelector("#dataimage").addEventListener("change", readFile);
 
 function readFile() {
-	alert('huhu')
 	const FR = new FileReader();
-	FR.addEventListener("load", function(evt) {
-		document.querySelector("#imgload").src = evt.target.result;
-		document.querySelector("#srcImg").value = evt.target.result;
-		alert(document.querySelector("#srcImg").value);
+	FR.addEventListener("load", (evt) =>{
+		document.querySelector("#loadimg").src = evt.target.result;
+		document.querySelector("#srcImage").value = evt.target.result;
 	});
 	FR.readAsDataURL(this.files[0]);
 }
 
-	window.addEventListener("load", function() {
+	window.addEventListener("load", ()=> {
 		let params = new URLSearchParams(window.location.search);
-		var paramID = params.get("id");
-		var paramName = params.get("product");
-		if (paramName != null && paramID != null) {
+		var paramID = params.get("idpro");
+		if (paramID != null) {
 			$('.qwe').modal('show');
 		}
 
 		
 	})
 </script>
+<script>
+                        ClassicEditor
+                                .create( document.querySelector( '#motaupdateadmin' ) )
+                                .then( testmota => {
+                                	document.querySelector("#motaupdateadmin").value = testmota;
+                                } )
+                                .catch( error => {
+                                        console.error( error );
+                                } );
+                </script>
 
 
 

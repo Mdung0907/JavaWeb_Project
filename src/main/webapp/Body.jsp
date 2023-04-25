@@ -34,7 +34,7 @@
 										id="test" placeholder="Nhập tên cần tìm" autocomplete="on">
 								</fieldset>
 							</div>
-	
+
 							<div class="col-lg-3 align-self-center" style="width: 33%">
 								<fieldset>
 									<select name="price" class="form-select"
@@ -80,13 +80,11 @@
 		</div>
 	</div>
 	<div style="margin-left: 8%">
-		<a href="index?order=asc">
-			<button style="border: none; font-size: 20px">Sắp xếp tăng
-				dần</button>
-		</a> <a href="index?order=desc">
-			<button style="border: none; font-size: 20px">Sắp xếp giảm
-				dần</button>
-		</a>
+		<select style="width: 17%;font-size: 16px;height: 35px" onchange="location = this.value;">
+			<option value="">Sắp xếp theo giá</option>
+			<option value="index?order=asc">Tăng dần</option>
+			<option value="index?order=desc">Giảm dần</option>
+		</select>
 	</div>
 
 	<c:choose>
@@ -160,10 +158,10 @@
 								<c:set var="sotrang" value="${tong/3}"></c:set>
 							</c:otherwise>
 						</c:choose>
-						<div style="display: flex">
+						<div style="display: flex; justify-content: center;">
 							<c:forEach var="i" begin="1" end="${sotrang}" step="1">
 								<a
-									style="text-align: center; margin: auto; font-size: 22px; color: black; font-weight: 600"
+									style="text-align: center; font-size: 22px; color: black; font-weight: 600; border: 1px solid #ccc; border-radius: 5px; padding: 5px 10px; margin: 0px 5px;"
 									href="index?vitri=${i }">${i }</a>
 							</c:forEach>
 						</div>
@@ -241,10 +239,10 @@
 								<c:set var="sotrang" value="${tong/3}"></c:set>
 							</c:otherwise>
 						</c:choose>
-						<div style="display: flex">
+						<div style="display: flex; justify-content: center;">
 							<c:forEach var="i" begin="1" end="${sotrang}" step="1">
 								<a
-									style="text-align: center; margin: auto; font-size: 22px; color: black; font-weight: 600"
+									style="text-align: center; font-size: 22px; color: black; font-weight: 600; border: 1px solid #ccc; border-radius: 5px; padding: 5px 10px; margin: 0px 5px;"
 									href="index?vitri=${i }">${i }</a>
 							</c:forEach>
 						</div>
@@ -330,10 +328,10 @@
 												<c:set var="sotrang" value="${tong/3}"></c:set>
 											</c:otherwise>
 										</c:choose>
-										<div style="display: flex">
+										<div style="display: flex; justify-content: center;">
 											<c:forEach var="i" begin="1" end="${sotrang}" step="1">
 												<a
-													style="text-align: center; margin: auto; font-size: 22px; color: black; font-weight: 600"
+													style="text-align: center; font-size: 22px; color: black; font-weight: 600; border: 1px solid #ccc; border-radius: 5px; padding: 5px 10px; margin: 0px 5px;"
 													href="index?vitri=${i }">${i }</a>
 											</c:forEach>
 										</div>
@@ -355,8 +353,7 @@
 							<div class="recent-listing" style="margin-top: 0">
 								<div class="container">
 									<div class="row">
-										<c:forEach var="product"
-											items="${f:getAllproductbyGia()}">
+										<c:forEach var="product" items="${f:getAllproductbyGia()}">
 											<div class="col-lg-12">
 												<div class="owl-carousel owl-listing">
 													<div class="item">
@@ -413,10 +410,10 @@
 												<c:set var="sotrang" value="${tong/3}"></c:set>
 											</c:otherwise>
 										</c:choose>
-										<div style="display: flex">
+										<div style="display: flex; justify-content: center;">
 											<c:forEach var="i" begin="1" end="${sotrang}" step="1">
 												<a
-													style="text-align: center; margin: auto; font-size: 22px; color: black; font-weight: 600"
+													style="text-align: center; font-size: 22px; color: black; font-weight: 600; border: 1px solid #ccc; border-radius: 5px; padding: 5px 10px; margin: 0px 5px;"
 													href="index?vitri=${i }">${i }</a>
 											</c:forEach>
 										</div>
@@ -424,8 +421,7 @@
 								</div>
 							</div>
 						</c:when>
-						<c:when
-							test="${param.price=='1000to5000' }">
+						<c:when test="${param.price=='1000to5000' }">
 							<c:set var="soluong" value="3"></c:set>
 							<c:choose>
 
@@ -439,8 +435,7 @@
 							<div class="recent-listing" style="margin-top: 0">
 								<div class="container">
 									<div class="row">
-										<c:forEach var="product"
-											items="${f:getAllproductbyGia()}">
+										<c:forEach var="product" items="${f:getAllproductbyGia()}">
 											<div class="col-lg-12">
 												<div class="owl-carousel owl-listing">
 													<div class="item">
@@ -486,8 +481,7 @@
 												</div>
 											</div>
 										</c:forEach>
-										<c:set var="tong"
-											value="${f:demProducttest()}"></c:set>
+										<c:set var="tong" value="${f:demProducttest()}"></c:set>
 										<c:choose>
 											<c:when test="${tong%3!=0 }">
 												<c:set var="sotrang" value="${tong/3 + 1}"></c:set>
@@ -497,10 +491,10 @@
 												<c:set var="sotrang" value="${tong/3}"></c:set>
 											</c:otherwise>
 										</c:choose>
-										<div style="display: flex">
+										<div style="display: flex; justify-content: center;">
 											<c:forEach var="i" begin="1" end="${sotrang}" step="1">
 												<a
-													style="text-align: center; margin: auto; font-size: 22px; color: black; font-weight: 600"
+													style="text-align: center; font-size: 22px; color: black; font-weight: 600; border: 1px solid #ccc; border-radius: 5px; padding: 5px 10px; margin: 0px 5px;"
 													href="index?vitri=${i }">${i }</a>
 											</c:forEach>
 										</div>
@@ -523,8 +517,7 @@
 							<div class="recent-listing" style="margin-top: 0">
 								<div class="container">
 									<div class="row">
-										<c:forEach var="product"
-											items="${f:getAllproductbyGia()}">
+										<c:forEach var="product" items="${f:getAllproductbyGia()}">
 											<div class="col-lg-12">
 												<div class="owl-carousel owl-listing">
 													<div class="item">
@@ -581,10 +574,10 @@
 												<c:set var="sotrang" value="${tong/3}"></c:set>
 											</c:otherwise>
 										</c:choose>
-										<div style="display: flex">
+										<div style="display: flex; justify-content: center;">
 											<c:forEach var="i" begin="1" end="${sotrang}" step="1">
 												<a
-													style="text-align: center; margin: auto; font-size: 22px; color: black; font-weight: 600"
+													style="text-align: center; font-size: 22px; color: black; font-weight: 600; border: 1px solid #ccc; border-radius: 5px; padding: 5px 10px; margin: 0px 5px;"
 													href="index?vitri=${i }">${i }</a>
 											</c:forEach>
 										</div>
@@ -606,8 +599,7 @@
 							<div class="recent-listing" style="margin-top: 0">
 								<div class="container">
 									<div class="row">
-										<c:forEach var="product"
-											items="${f:getAllproductbyGia()}">
+										<c:forEach var="product" items="${f:getAllproductbyGia()}">
 											<div class="col-lg-12">
 												<div class="owl-carousel owl-listing">
 													<div class="item">
@@ -664,10 +656,10 @@
 												<c:set var="sotrang" value="${tong/3}"></c:set>
 											</c:otherwise>
 										</c:choose>
-										<div style="display: flex">
+										<div style="display: flex; justify-content: center;">
 											<c:forEach var="i" begin="1" end="${sotrang}" step="1">
 												<a
-													style="text-align: center; margin: auto; font-size: 22px; color: black; font-weight: 600"
+													style="text-align: center; font-size: 22px; color: black; font-weight: 600; border: 1px solid #ccc; border-radius: 5px; padding: 5px 10px; margin: 0px 5px;"
 													href="index?vitri=${i }">${i }</a>
 											</c:forEach>
 										</div>
@@ -745,10 +737,10 @@
 												<c:set var="sotrang" value="${tong/3}"></c:set>
 											</c:otherwise>
 										</c:choose>
-										<div style="display: flex">
+										<div style="display: flex; justify-content: center;">
 											<c:forEach var="i" begin="1" end="${sotrang}" step="1">
 												<a
-													style="text-align: center; margin: auto; font-size: 22px; color: black; font-weight: 600"
+													style="text-align: center; font-size: 22px; color: black; font-weight: 600; border: 1px solid #ccc; border-radius: 5px; padding: 5px 10px; margin: 0px 5px;"
 													href="index?vitri=${i }">${i }</a>
 											</c:forEach>
 										</div>
@@ -829,10 +821,10 @@
 										<c:set var="sotrang" value="${tong/3}"></c:set>
 									</c:otherwise>
 								</c:choose>
-								<div style="display: flex">
+								<div style="display: flex; justify-content: center;">
 									<c:forEach var="i" begin="1" end="${sotrang}" step="1">
 										<a
-											style="text-align: center; margin: auto; font-size: 22px; color: black; font-weight: 600"
+											style="text-align: center; font-size: 22px; color: black; font-weight: 600; border: 1px solid #ccc; border-radius: 5px; padding: 5px 10px; margin: 0px 5px;"
 											href="index?vitri=${i }">${i }</a>
 									</c:forEach>
 								</div>
