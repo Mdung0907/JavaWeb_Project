@@ -25,6 +25,7 @@ public class AccountDao {
 			return session.createQuery("from Account", Account.class).list();
 		}
 	}
+
 	public static Account findById(int id) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		try {
@@ -35,22 +36,23 @@ public class AccountDao {
 		}
 
 	}
-	
+
 	public static Account findAccountbyname(String name) {
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-			return session.createQuery(" from Account where username =:name", Account.class).setParameter("name", name).uniqueResult();
+			return session.createQuery(" from Account where username =:name", Account.class).setParameter("name", name)
+					.uniqueResult();
 		}
 	}
 
-	//Lấy danh mục theo id
-	public static Account getAccountbyUsname(String username,String password) {
+	// Lấy danh mục theo id
+	public static Account getAccountbyUsname(String username, String password) {
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 			return session.createQuery("from Account where username = :username and password= :password", Account.class)
 					.setParameter("username", username).setParameter("password", password).uniqueResult();
 		}
 	}
 
-	//xóa danh mục theo ID
+	// xóa danh mục theo ID
 	public static void delete(int id) {
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 			// start a transaction
@@ -64,12 +66,11 @@ public class AccountDao {
 		}
 	}
 
-	//Cập nhật danh mục
+	// Cập nhật danh mục
 	public static void update(Account acc) {
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 			// start a transaction
 			session.beginTransaction();
-
 
 			session.update(acc);
 
@@ -79,6 +80,5 @@ public class AccountDao {
 			e.printStackTrace();
 		}
 
-
-	  }
+	}
 }

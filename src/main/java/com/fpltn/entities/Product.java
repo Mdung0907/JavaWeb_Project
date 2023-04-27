@@ -30,40 +30,44 @@ public class Product implements java.io.Serializable {
 	private Boolean tinhtrang;
 	private String mota;
 	private String hinhanh;
+
 	public Product() {
 	}
 
-	public Product(Danhmuc danhmuc, String name, Double gia,Account nguoitao,Date ngaytao,Boolean tinhtrang,
+	public Product(Danhmuc danhmuc, String name, Double gia, Account nguoitao, Date ngaytao, Boolean tinhtrang,
 			String mota) {
 		this.danhmuc = danhmuc;
 		this.name = name;
 		this.gia = gia;
 		this.nguoitao = nguoitao;
-		this.ngaytao=ngaytao;
+		this.ngaytao = ngaytao;
 		this.tinhtrang = tinhtrang;
 		this.mota = mota;
 	}
-	public Product(Integer id, String name,Danhmuc danhmuc, Double gia, Account nguoitao,Date newdate, String mota,Boolean tinhtrang,String hinhanh) {
+
+	public Product(Integer id, String name, Danhmuc danhmuc, Double gia, Account nguoitao, Date newdate, String mota,
+			Boolean tinhtrang, String hinhanh) {
 		this.id = id;
 		this.name = name;
 		this.danhmuc = danhmuc;
 		this.gia = gia;
 		this.nguoitao = nguoitao;
-		this.ngaytao=newdate;
+		this.ngaytao = newdate;
 		this.mota = mota;
 		this.tinhtrang = tinhtrang;
-		this.hinhanh=hinhanh;
+		this.hinhanh = hinhanh;
 	}
 
-	public Product(String name,Danhmuc danhmuc, Double gia, Account nguoitao,Date newdate, String mota,Boolean tinhtrang,String hinhanh) {
+	public Product(String name, Danhmuc danhmuc, Double gia, Account nguoitao, Date newdate, String mota,
+			Boolean tinhtrang, String hinhanh) {
 		this.name = name;
 		this.danhmuc = danhmuc;
 		this.gia = gia;
 		this.nguoitao = nguoitao;
-		this.ngaytao=newdate;
+		this.ngaytao = newdate;
 		this.mota = mota;
 		this.tinhtrang = tinhtrang;
-		this.hinhanh=hinhanh;
+		this.hinhanh = hinhanh;
 	}
 
 	@Id
@@ -106,7 +110,6 @@ public class Product implements java.io.Serializable {
 		this.gia = gia;
 	}
 
-
 	@Column(name = "tinhtrang")
 	public Boolean getTinhtrang() {
 		return this.tinhtrang;
@@ -124,6 +127,7 @@ public class Product implements java.io.Serializable {
 	public void setMota(String mota) {
 		this.mota = mota;
 	}
+
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "nguoitao")
 	public Account getNguoitao() {
@@ -133,6 +137,7 @@ public class Product implements java.io.Serializable {
 	public void setNguoitao(Account nguoitao) {
 		this.nguoitao = nguoitao;
 	}
+
 	@Column(name = "ngaytao")
 	public Date getNgaytao() {
 		return this.ngaytao;

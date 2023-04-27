@@ -1,7 +1,6 @@
 package com.fpltn.servlet;
 
 import java.io.IOException;
-import java.net.URLEncoder;
 
 import com.fpltn.dao.AccountDao;
 import com.fpltn.entities.Account;

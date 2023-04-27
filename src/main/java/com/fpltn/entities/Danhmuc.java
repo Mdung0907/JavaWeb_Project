@@ -1,7 +1,6 @@
 package com.fpltn.entities;
 // Generated Apr 10, 2023, 10:48:36 AM by Hibernate Tools 4.3.6.Final
 
-
 import static javax.persistence.GenerationType.IDENTITY;
 
 import javax.persistence.Column;
@@ -59,7 +58,5 @@ public class Danhmuc implements java.io.Serializable {
 	public void setMota(String mota) {
 		this.mota = mota;
 	}
-
-
 
 }

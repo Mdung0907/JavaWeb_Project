@@ -4,7 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <%@ taglib prefix="f" uri="/WEB-INF/laydulieu"%>
-
+	
 <body>
 
 	<!-- ***** Preloader Start ***** -->
@@ -17,8 +17,8 @@
 		</div>
 	</div>
 	<!-- ***** Preloader End ***** -->
+<%@include file="include/Header.jsp"%>
 
-	<%@include file="include/Header.jsp"%>
 	<%@include file="CreateProduct.jsp"%>
 	<%@include file="UpdateProduct.jsp"%>
 	<%@include file="ConfirmDeleteProduct.jsp"%>

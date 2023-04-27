@@ -32,8 +32,7 @@ public class ProductDao {
 
 	public static List<Product> getProductbyGia() {
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-			return session.createQuery(" from Product where gia between 1000000 and 5000000", Product.class)
-					.list();
+			return session.createQuery(" from Product where gia between 1000000 and 5000000", Product.class).list();
 		}
 	}
 
@@ -64,7 +63,7 @@ public class ProductDao {
 	}
 
 	public static List<Product> getProduct(int viTri, int soLuong) {
-		try (Session session = (Session) HibernateUtil.getSessionFactory().openSession()) {
+		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 			Query query = session.createQuery(" from Product as Product", Product.class);
 			query.setFirstResult(viTri);
 			query.setMaxResults(soLuong);
@@ -74,7 +73,7 @@ public class ProductDao {
 
 	public static List<Product> getProductbyDanhmuc(int viTri, int soLuong, int danhmuc) {
 		Danhmuc pro = DanhmucDao.findById(danhmuc);
-		try (Session session = (Session) HibernateUtil.getSessionFactory().openSession()) {
+		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 			Query query = session.createQuery(" from Product as Product where danhmuc =:danhmuc", Product.class)
 					.setParameter("danhmuc", pro);
 			query.setFirstResult(viTri);
@@ -84,7 +83,7 @@ public class ProductDao {
 	}
 
 	public static long DemSoLuongProduct() {
-		try (Session session = (Session) HibernateUtil.getSessionFactory().openSession()) {
+		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 			String countQ = "Select count (Product.id) from Product Product";
 			Query countQuery = session.createQuery(countQ);
 			return (Long) countQuery.uniqueResult();
@@ -92,15 +91,15 @@ public class ProductDao {
 	}
 
 	public static long DemSoLuongProduct(String name) {
-		try (Session session = (Session) HibernateUtil.getSessionFactory().openSession()) {
+		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 			String countQ = "Select count (Product.id) from Product Product where name like :name";
 			Query countQuery = session.createQuery(countQ).setParameter("name", "%" + name + "%");
 			return (Long) countQuery.uniqueResult();
 		}
 	}
-	
-	public static long DemSoLuongProducttest( ) {
-		try (Session session = (Session) HibernateUtil.getSessionFactory().openSession()) {
+
+	public static long DemSoLuongProducttest() {
+		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 			String countQ = "Select count (Product.id) from Product Product where gia between 1000000 and 5000000";
 			Query countQuery = session.createQuery(countQ);
 			return (Long) countQuery.uniqueResult();

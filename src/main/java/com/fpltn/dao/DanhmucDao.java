@@ -27,7 +27,7 @@ public class DanhmucDao {
 		}
 	}
 
-	//Lấy danh mục theo id
+	// Lấy danh mục theo id
 	public static Danhmuc findById(int id) {
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 			Danhmuc dm = session.load(Danhmuc.class, id);
@@ -37,15 +37,14 @@ public class DanhmucDao {
 
 	}
 
-	//xóa danh mục theo ID
+	// xóa danh mục theo ID
 	public static void delete(int id) {
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 			// start a transaction
-			 session.beginTransaction();
+			session.beginTransaction();
 
 			Danhmuc dm = session.load(Danhmuc.class, id);
 			session.delete(dm);
-
 
 			// commit transaction
 			session.getTransaction().commit();
@@ -54,13 +53,12 @@ public class DanhmucDao {
 		}
 	}
 
-	//Cập nhật danh mục
+	// Cập nhật danh mục
 	public static void update(Danhmuc dm) {
 
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 			// start a transaction
 			session.beginTransaction();
-
 
 			session.update(dm);
 
@@ -71,6 +69,5 @@ public class DanhmucDao {
 			e.printStackTrace();
 		}
 
-
-	  }
+	}
 }

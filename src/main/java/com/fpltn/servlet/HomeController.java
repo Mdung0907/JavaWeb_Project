@@ -9,8 +9,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet(urlPatterns = { "/category", "/login", "/contact", "/detail", "/index", "/management", "/information", "/logout",
-		"/listing" })
+@WebServlet(urlPatterns = { "/category", "/login", "/contact", "/detail", "/index", "/management", "/information",
+		"/logout", "/listing" })
 public class HomeController extends HttpServlet {
 
 	private static final long serialVersionUID = 8509554900990908773L;
@@ -90,18 +90,20 @@ public class HomeController extends HttpServlet {
 		requestDispatcher.forward(req, resp);
 	}
 
-	private void doGetManagement(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	private void doGetManagement(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
 		RequestDispatcher requestDispatcher = req.getRequestDispatcher("ManagementAdmin.jsp");
 		requestDispatcher.forward(req, resp);
 	}
+
 	private void doGetCategory(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		RequestDispatcher requestDispatcher = req.getRequestDispatcher("Category.jsp");
 		requestDispatcher.forward(req, resp);
 	}
+
 	private void doGetListing(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		RequestDispatcher requestDispatcher = req.getRequestDispatcher("Listing.jsp");
 		requestDispatcher.forward(req, resp);
 	}
-
 
 }

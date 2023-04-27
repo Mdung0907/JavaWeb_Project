@@ -3,7 +3,6 @@ package com.fpltn.servlet;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
 import java.util.Date;
 
 import com.fpltn.dao.AccountDao;
@@ -61,7 +60,7 @@ public class SVUpdateProduct extends HttpServlet {
 			String name = request.getParameter("name");
 			int danhmuc = Integer.parseInt(request.getParameter("dm"));
 			Danhmuc dm = DanhmucDao.findById(danhmuc);
-			double gia =Double.parseDouble( request.getParameter("gia"));
+			double gia = Double.parseDouble(request.getParameter("gia"));
 			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 			Date ngaytao;
 			String mota = request.getParameter("mota");
@@ -87,7 +86,7 @@ public class SVUpdateProduct extends HttpServlet {
 			int pnguoitao = Integer.parseInt(request.getParameter("nguoitao"));
 			Account pnt = AccountDao.findById(pnguoitao);
 			Danhmuc pdm = DanhmucDao.findById(pdanhmuc);
-			double pgia = Double.parseDouble( request.getParameter("gia"));
+			double pgia = Double.parseDouble(request.getParameter("gia"));
 			String pmota = request.getParameter("mota");
 			String phinhanh = request.getParameter("hinhanh");
 			SimpleDateFormat formatter2 = new SimpleDateFormat("yyyy-MM-dd");
@@ -95,8 +94,7 @@ public class SVUpdateProduct extends HttpServlet {
 			try {
 				ngaytao2 = formatter2.parse(request.getParameter("ngaytao"));
 
-				Product ppro = new Product(pid, pname, pdm, pgia, pnt,
-						ngaytao2, pmota, true, phinhanh);
+				Product ppro = new Product(pid, pname, pdm, pgia, pnt, ngaytao2, pmota, true, phinhanh);
 				ProductDao.update(ppro);
 			} catch (ParseException e) {
 				// TODO Auto-generated catch block

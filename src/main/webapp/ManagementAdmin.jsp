@@ -3,14 +3,18 @@
 <%@include file="include/Head.jsp"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="f" uri="/WEB-INF/laydulieu"%>
-<%@include file="../include/Header.jsp"%>
-<body>
+
 	<%@include file="CreateProduct.jsp"%>
 	<%@include file="UpdateAccountAdmin.jsp"%>
 	<%@include file="UpdateProductAdmin.jsp"%>
 	<%@include file="ConfirmDeleteProduct.jsp"%>
 		<%@include file="ConfirmDeleteAccount.jsp"%>
-	<main class="main-banner ">
+<body>
+
+		<c:choose>
+		<c:when test="${AccountLogin.getRole()==true }">
+		<%@include file="../include/Header.jsp"%>
+		<main class="main-banner ">
 		<div class="container" style="margin-top: -7%; color: white;">
 
 			<div>
@@ -112,6 +116,13 @@
 				</table>
 			</div>
 		</div>
+			<%@include file="../include/Footer.jsp"%>
 	</main>
-	<%@include file="../include/Footer.jsp"%>
+		</c:when>
+		<c:otherwise>
+		<h1 style="margin: auto;text-align: center">NOT FOUND</h1>
+		</c:otherwise>
+		</c:choose>
+	
+
 </body>

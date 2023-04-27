@@ -1,7 +1,6 @@
 package com.fpltn.entities;
 // Generated Apr 10, 2023, 10:48:36 AM by Hibernate Tools 4.3.6.Final
 
-
 import static javax.persistence.GenerationType.IDENTITY;
 
 import java.util.Set;
@@ -30,7 +29,7 @@ public class Account implements java.io.Serializable {
 	public Account() {
 	}
 
-	public Account(String username, String password, String fullname, String email,  Boolean role,
+	public Account(String username, String password, String fullname, String email, Boolean role,
 			Set<Product> products) {
 		this.username = username;
 		this.password = password;
@@ -38,15 +37,8 @@ public class Account implements java.io.Serializable {
 		this.email = email;
 		this.role = role;
 	}
-	public Account(String username, String password, String fullname, String email,  Boolean role) {
-		this.username = username;
-		this.password = password;
-		this.fullname = fullname;
-		this.email = email;
-		this.role = role;
-	}
-	public Account(int id,String username, String password, String fullname, String email,  Boolean role) {
-		this.id = id;
+
+	public Account(String username, String password, String fullname, String email, Boolean role) {
 		this.username = username;
 		this.password = password;
 		this.fullname = fullname;
@@ -54,6 +46,14 @@ public class Account implements java.io.Serializable {
 		this.role = role;
 	}
 
+	public Account(int id, String username, String password, String fullname, String email, Boolean role) {
+		this.id = id;
+		this.username = username;
+		this.password = password;
+		this.fullname = fullname;
+		this.email = email;
+		this.role = role;
+	}
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
@@ -103,7 +103,6 @@ public class Account implements java.io.Serializable {
 		this.email = email;
 	}
 
-
 	@Column(name = "Role")
 	public Boolean getRole() {
 		return this.role;
@@ -112,6 +111,5 @@ public class Account implements java.io.Serializable {
 	public void setRole(Boolean role) {
 		this.role = role;
 	}
-
 
 }
